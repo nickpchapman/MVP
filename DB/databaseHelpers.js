@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-mongoose.connect('http://localhost:3000/');
+mongoose.connect('mongodb://localhost/test');
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
@@ -17,15 +17,15 @@ var saveUrlToDatabase = function(callback) {
 
 
 var fluffy = new Kitten({ name: 'fluffy' });
-
+//use find one and update
 fluffy.save(function (err, fluffy) {
   if (err) return console.error(err);
 });
-
+//use query in JSON??? format
 Kitten.find(function (err, kittens) {
   if (err) return console.error(err);
   console.log(kittens);
-  callback(kittens)
+  callback(null, kittens)
 })
 
 }

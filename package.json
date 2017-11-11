@@ -1,0 +1,23 @@
+{
+  "name": "nick-c-mvp",
+  "version": "1.0.0",
+  "description": "nicks mvp project",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nickpchapman/MVP.git"
+  },
+  "author": "nick c",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nickpchapman/MVP/issues"
+  },
+  "homepage": "https://github.com/nickpchapman/MVP#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "nodemon": "^1.12.1"
+  }
+}

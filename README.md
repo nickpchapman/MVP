@@ -20,7 +20,7 @@ Store that awesome meme or image so you can come back to it at just the right ti
 -Marketing Guy
 
 # How to Get Started
-Like, so easy to get started a baby could do it
+Super easy, jsut come to my house and check out my local dev environment
 
 # Customer Quote
 "I always have the right meme for any situation now that I use ImageCache. All of my friends think more highly of me as a person now."

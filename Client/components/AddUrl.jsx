@@ -1,7 +1,10 @@
-var AddUrl = () => (
+class Addurl extends React.Component {
 
+  render() {
+    return (
       <div>
-        add image url<input type="text"/>
+        <input>Add image url</input>
       </div>
-
-);
+    );
+  }
+}

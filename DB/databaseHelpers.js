@@ -6,27 +6,31 @@ db.once('open', function() {
   console.log('now connected');
 });
 
-var kittySchema = mongoose.Schema({
-    name: String
+var imageSchema = mongoose.Schema({
+    url: String
 });
 
-var Kitten = mongoose.model('Kitten', kittySchema);
+var Image = mongoose.model('Image', imageSchema);
 
-var saveUrlToDatabase = function(callback) {
-  console.log('called save Url')
+var saveUrlToDatabase = function(url, callback) {
+  console.log('called save with ', url);
 
-
-var fluffy = new Kitten({ name: 'fluffy' });
-//use find one and update
-fluffy.save(function (err, fluffy) {
-  if (err) return console.error(err);
-});
-//use query in JSON??? format
-Kitten.find(function (err, kittens) {
-  if (err) return console.error(err);
-  console.log(kittens);
-  callback(null, kittens)
-})
-
+  var image = new Image({ url: url });
+  //update if image url is unique
+  Image.findOneAndUpdate(
+    {url: url},
+    {url: url},
+    {upsert: true},
+    (err, data) => {
+      if (err) {
+        throw err
+      }
+      //return all images stored
+      Image.find(function (err, kittens) {
+        if (err) return console.error(err);
+          // console.log(kittens);
+        callback(null, kittens)
+      })
+  });
 }
 module.exports = saveUrlToDatabase;

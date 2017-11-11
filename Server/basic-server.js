@@ -9,7 +9,7 @@ app.get('/', (req, res) => {
   // res.send('')
 })
 app.post('/', (req, res) => {
-  saveUrl((err, data) => {
+  saveUrl('www.reddit.com/r/dogs', (err, data) => {
     if (err) {
       throw err;
     }

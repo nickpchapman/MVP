@@ -1,8 +1,10 @@
 var Image = ({url}) => (
 
-  <ul>
-    <li>{url}</li>
-  </ul>
+  <div>
+    <span>{url}
+      <button>delete image</button>
+    </span>
+  </div>
 
 
 

@@ -5,7 +5,6 @@
   "main": "index.js",
   "scripts": {
     "start": "./node_modules/.bin/babel . --watch --out-dir compiled --presets=es2015,react --ignore=node_modules,compiled --source-maps inline"
-
   },
   "repository": {
     "type": "git",
@@ -19,6 +18,7 @@
   "homepage": "https://github.com/nickpchapman/MVP#readme",
   "dependencies": {
     "express": "^4.16.2",
+    "mongoose": "^4.10.8",
     "nodemon": "^1.12.1",
     "react": "^16.1.0",
     "react-dom": "^16.1.0",

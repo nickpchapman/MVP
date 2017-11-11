@@ -1,6 +1,7 @@
 var AddUrl = () => (
 
-      <div>helloo
+      <div>
+        add image url<input type="text"/>
       </div>
 
 );

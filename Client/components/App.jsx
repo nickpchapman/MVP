@@ -2,29 +2,32 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      urls: ["www.reddit.com", "www.google.com"],
+      urls: [{url: "www.reddit.com"}, {url: "www.google.com"}],
       entry: ''
     }
   }
+
   entryChange(event) {
-    // console.log('before', this.state)
     this.setState({entry: event.target.value})
-    // console.log('current state:', this.state.entry);
   }
+
+  deleteUrl(url) {
+    console.log('url', url)
+    console.log('delete me')
+  }
+
   insertUrl(url) {
     console.log('insert this====>', this.state.entry)
-
+    var app = this;
   axios.post('/', {
     url: this.state.entry
   })
   .then(function (response) {
-    console.log('response ====>', response);
-    // this.setState({urls: response.data})
+    app.setState({urls: response.data});
   })
   .catch(function (error) {
     console.log(error);
   });
-
     url.preventDefault();
   }
 
@@ -33,7 +36,7 @@ class App extends React.Component {
       <div>
         <h1>My Images</h1>
         <div>
-          <Images urls={this.state.urls}/>
+          <Images deleteUrl={this.deleteUrl.bind(this)} urls={this.state.urls}/>
         </div>
         <div>
           <AddUrl entryChange={this.entryChange.bind(this)} insertUrl={this.insertUrl.bind(this)} entry={this.state.entry}/>

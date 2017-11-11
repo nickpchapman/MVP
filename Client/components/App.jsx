@@ -7,12 +7,24 @@ class App extends React.Component {
     }
   }
   entryChange(event) {
-    console.log('before', this.state)
+    // console.log('before', this.state)
     this.setState({entry: event.target.value})
-    console.log('current state:', this.state.entry);
+    // console.log('current state:', this.state.entry);
   }
   insertUrl(url) {
     console.log('insert this====>', this.state.entry)
+
+  axios.post('/', {
+    url: this.state.entry
+  })
+  .then(function (response) {
+    console.log('response ====>', response);
+    // this.setState({urls: response.data})
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+
     url.preventDefault();
   }
 

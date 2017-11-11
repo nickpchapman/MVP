@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/nickpchapman/MVP#readme",
   "dependencies": {
+    "axios": "^0.17.0",
+    "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "mongoose": "^4.10.8",
     "nodemon": "^1.12.1",

@@ -1,19 +1,22 @@
 const express = require('express');
 const saveUrl = require('../DB/databaseHelpers.js');
-const app = express()
+const bodyParser = require('body-parser');
+const app = express();
 
-app.use(express.static('/users/mr.nick/development/hackreactor/MVP'))
+app.use(express.static('/users/mr.nick/development/hackreactor/MVP'));
+app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
-
-  // res.send('')
 })
+
 app.post('/', (req, res) => {
-  saveUrl('www.reddit.com/r/dogs', (err, data) => {
+  console.log('we want to get:', req.body);
+  saveUrl(req.body.url, (err, data) => {
     if (err) {
       throw err;
     }
     console.log(data);
+    res.send(data);
   });
 
 })

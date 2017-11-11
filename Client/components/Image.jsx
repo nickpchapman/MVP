@@ -6,7 +6,4 @@ var Image = ({url}) => (
     </span>
   </div>
 
-
-
-
-  )
+)

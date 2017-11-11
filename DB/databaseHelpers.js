@@ -26,10 +26,9 @@ var saveUrlToDatabase = function(url, callback) {
         throw err
       }
       //return all images stored
-      Image.find(function (err, kittens) {
+      Image.find(function (err, allImages) {
         if (err) return console.error(err);
-          // console.log(kittens);
-        callback(null, kittens)
+        callback(null, allImages)
       })
   });
 }

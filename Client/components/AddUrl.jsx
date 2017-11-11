@@ -1,10 +1,12 @@
-class Addurl extends React.Component {
+var AddUrl = () => (
 
-  render() {
-    return (
-      <div>
-        <input>Add image url</input>
-      </div>
-    );
-  }
-}
+  <div>
+    <form>
+      <label>
+        Add Image url:
+        <input type="text" />
+      </label>
+    </form>
+  </div>
+
+)

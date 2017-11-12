@@ -7,7 +7,7 @@ var Image = function Image(_ref) {
   return React.createElement(
     "div",
     null,
-    React.createElement("img", { src: url, height: "100", width: "100" }),
+    React.createElement("img", { src: url, height: "200", width: "auto" }),
     React.createElement(
       "span",
       null,

@@ -1,7 +1,7 @@
 var Image = ({url, deleteUrl, analysis}) => (
 
   <div>
-    <img src={url} height="100" width="100"/>
+    <img src={url} height="200" width="auto"/>
     <span>
       <button onClick={deleteUrl.bind(this, url)}>delete image</button>
     </span>

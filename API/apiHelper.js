@@ -8,7 +8,7 @@ module.exports = {
  clarifaiImage: function(url, callback) {
     console.log('called clarifai', url);
 
-    app.models.predict(Clarifai.GENERAL_MODEL, 'https://samples.clarifai.com/metro-north.jpg').then(
+    app.models.predict(Clarifai.GENERAL_MODEL, url).then(
       function(response) {
         // console.log('from api', response);
         callback(null, response);

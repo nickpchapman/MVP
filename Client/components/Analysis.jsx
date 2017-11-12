@@ -1,8 +1,6 @@
-var Analysis = ({key, name, value}) => (
-
+var Analysis = ({name, value}) => (
   <div>
-      <div>name:</div>
+      <div>{name}</div>
+      <div>{value}</div>
   </div>
-
-
 )

@@ -16,6 +16,13 @@ var Image = function Image(_ref) {
         { onClick: deleteUrl.bind(undefined, url) },
         "delete image"
       )
+    ),
+    React.createElement(
+      "div",
+      null,
+      JSON.parse(analysis).outputs[0].data.concepts.map(function (keywordObj) {
+        return React.createElement(Analysis, { key: keywordObj.id, name: keywordObj.name, value: keywordObj.value });
+      })
     )
   );
 };

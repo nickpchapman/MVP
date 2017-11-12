@@ -12,24 +12,61 @@ var imageSchema = mongoose.Schema({
 
 var Image = mongoose.model('Image', imageSchema);
 
-var saveUrlToDatabase = function(url, callback) {
-  console.log('called save with ', url);
+module.exports = {
 
-  var image = new Image({ url: url });
-  //update if image url is unique
-  Image.findOneAndUpdate(
-    {url: url},
-    {url: url},
-    {upsert: true},
-    (err, data) => {
-      if (err) {
-        throw err
-      }
-      //return all images stored
-      Image.find(function (err, allImages) {
-        if (err) return console.error(err);
+  saveUrlToDatabase: function(url, callback) {
+    console.log('called save with ', url);
+
+    var image = new Image({ url: url });
+    //update if image url is unique
+    Image.findOneAndUpdate(
+      {url: url},
+      {url: url},
+      {upsert: true},
+      (err, data) => {
+        if (err) {
+          throw err
+        }
+        //return all images stored
+        Image.find(function (err, allImages) {
+          if (err) return console.error(err);
+          callback(null, allImages)
+        })
+    });
+  },
+
+  deleteUrlFromDatabase: function(url, callback) {
+    console.log('going to delete:', url)
+    Image.findOneAndRemove(
+      {url: url},
+      (err, data) => {
+        if (err) {
+          throw err
+        }
+        //return all images stored
+        Image.find(function (err, allImages) {
+          if (err) return console.error(err);
+          callback(null, allImages)
+        });
+    });
+  },
+
+  getAllUrls: function(callback) {
+    console.log('getAllURLS')
+    Image.find(function (err, allImages) {
+      if (err) return console.error(err);
+      console.log('from db', allImages)
         callback(null, allImages)
-      })
-  });
+      });
+  }
 }
-module.exports = saveUrlToDatabase;
+
+
+
+
+
+
+
+
+
+

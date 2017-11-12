@@ -7,29 +7,49 @@ class App extends React.Component {
     }
   }
 
+  componentDidMount() {
+    var app = this;
+    axios.get('/urls')
+    .then(function (response) {
+      console.log(response);
+      app.setState({urls: response.data})
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }
+
   entryChange(event) {
     this.setState({entry: event.target.value})
   }
 
   deleteUrl(url) {
-    console.log('url', url)
-    console.log('delete me')
+    var app = this;
+    axios.post('/delete', {
+      url: url
+    })
+    .then(function (response) {
+      console.log('returned', response)
+      app.setState({urls: response.data});
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
   }
 
   insertUrl(url) {
-    console.log('insert this====>', this.state.entry)
     var app = this;
-  axios.post('/', {
-    url: this.state.entry
-  })
-  .then(function (response) {
-    app.setState({urls: response.data});
-  })
-  .catch(function (error) {
-    console.log(error);
-  });
-    url.preventDefault();
-  }
+    axios.post('/add', {
+      url: this.state.entry
+    })
+    .then(function (response) {
+      app.setState({urls: response.data});
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+      url.preventDefault();
+    }
 
   render() {
     return (

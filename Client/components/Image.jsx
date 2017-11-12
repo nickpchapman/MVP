@@ -1,8 +1,9 @@
-var Image = ({url, deleteUrl}) => (
+var Image = ({url, deleteUrl, analysis}) => (
 
   <div>
-    <span>{url}
-      <button onClick={deleteUrl.bind(this, url)} >delete image</button>
+    <img src={url} height="100" width="100"/>
+    <span>
+      <button onClick={deleteUrl.bind(this, url)}>delete image</button>
     </span>
   </div>
 

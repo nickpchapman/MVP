@@ -7,15 +7,20 @@ var Image = function Image(_ref) {
   return React.createElement(
     "div",
     null,
-    React.createElement("img", { src: url, height: "100", width: "100" }),
+    React.createElement("img", { src: url, height: "200", width: "100" }),
     React.createElement(
-      "span",
+      "div",
       null,
+      JSON.parse(analysis).data.concepts.map(function (descriptor) {
+        return React.createElement(Analysis, { key: descriptor.id,
+          name: descriptor.name, value: descriptor.value });
+      }),
       React.createElement(
         "button",
         { onClick: deleteUrl.bind(undefined, url) },
         "delete image"
-      )
+      ),
+      "}"
     )
   );
 };

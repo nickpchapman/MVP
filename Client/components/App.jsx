@@ -2,7 +2,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      urls: [{url: "www.reddit.com"}, {url: "www.google.com"}],
+      urls: [],
       entry: ''
     }
   }

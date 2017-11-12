@@ -1,3 +1,4 @@
+const api = require('../API/apiHelper.js');
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/test');
 var db = mongoose.connection;
@@ -6,8 +7,13 @@ db.once('open', function() {
   console.log('now connected');
 });
 
+
+
+
+
 var imageSchema = mongoose.Schema({
-    url: String
+    url: String,
+    analysis: String
 });
 
 var Image = mongoose.model('Image', imageSchema);
@@ -15,28 +21,34 @@ var Image = mongoose.model('Image', imageSchema);
 module.exports = {
 
   saveUrlToDatabase: function(url, callback) {
-    console.log('called save with ', url);
 
-    var image = new Image({ url: url });
-    //update if image url is unique
-    Image.findOneAndUpdate(
-      {url: url},
-      {url: url},
-      {upsert: true},
-      (err, data) => {
-        if (err) {
-          throw err
-        }
-        //return all images stored
-        Image.find(function (err, allImages) {
-          if (err) return console.error(err);
-          callback(null, allImages)
-        })
-    });
+    api.clarifaiImage(url, (err, data) => {
+      if (err){
+        console.log(err)
+      }
+      var data = JSON.stringify(data);
+
+      var image = new Image({url: url, analysis: data});
+
+      //update if image url is unique
+      Image.findOneAndUpdate(
+        { url: url, analysis: data},
+        { url: url, analysis: data},
+        {upsert: true},
+        (err, data) => {
+          if (err) {
+            throw err
+          }
+          //return all images stored
+          Image.find(function (err, allImages) {
+            if (err) return console.error(err);
+            callback(null, allImages)
+          })
+      });
+    })
   },
 
   deleteUrlFromDatabase: function(url, callback) {
-    console.log('going to delete:', url)
     Image.findOneAndRemove(
       {url: url},
       (err, data) => {
@@ -52,10 +64,8 @@ module.exports = {
   },
 
   getAllUrls: function(callback) {
-    console.log('getAllURLS')
     Image.find(function (err, allImages) {
       if (err) return console.error(err);
-      console.log('from db', allImages)
         callback(null, allImages)
       });
   }

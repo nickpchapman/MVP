@@ -1,0 +1,1 @@
+{"version":3,"sources":["../clarifaiKey.js"],"names":["module","exports","apiKey"],"mappings":";;AAAAA,OAAOC,OAAP,GAAiB;AAChBC,UAAQ;AADQ,CAAjB","file":"clarifaiKey.js","sourcesContent":["module.exports = {\n apiKey: 'dc32b282076149e9908231361004bc4f'\n};"]}

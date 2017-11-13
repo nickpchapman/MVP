@@ -17,9 +17,9 @@ body {
 
 #image {
   border-style: solid;
-  border-color: #808080;
+  border-color: black;
   /*border-width: 1px*/
-  border-radius: 50px;
+  border-radius: 10px;
   border-width: 1px
 
 }
@@ -27,22 +27,22 @@ body {
 #table {
  margin-left: 10px;
  margin-right: 10px;
+ background-color: none;
 }
 
 #addUrl {
-  border-bottom: 2px solid #808080;
+  border-bottom: 2px solid black;
   padding-bottom: 5px;
 }
 
 #delete {
   background-color: #f44336;
-  border: none;
   color: white;
-  padding: 15px 32px;
+  border: none;
+  padding: 7px 16px;
   text-align: center;
-  text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 12px;
 }
 
 table, th, td {

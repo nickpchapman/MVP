@@ -63,6 +63,7 @@ var App = function (_React$Component) {
       }).catch(function (error) {
         console.log(error);
       });
+      this.state.entry = "";
       url.preventDefault();
     }
   }, {

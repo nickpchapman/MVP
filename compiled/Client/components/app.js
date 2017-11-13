@@ -29,7 +29,7 @@ var App = function (_React$Component) {
       var app = this;
       axios.get('/urls').then(function (response) {
         console.log(response);
-        app.setState({ urls: response.data });
+        app.setState({ urls: response.data.reverse() });
       }).catch(function (error) {
         console.log(error);
       });
@@ -47,7 +47,7 @@ var App = function (_React$Component) {
         url: url
       }).then(function (response) {
         console.log('returned', response);
-        app.setState({ urls: response.data });
+        app.setState({ urls: response.data.reverse() });
       }).catch(function (error) {
         console.log(error);
       });
@@ -59,11 +59,16 @@ var App = function (_React$Component) {
       axios.post('/add', {
         url: this.state.entry
       }).then(function (response) {
-        app.setState({ urls: response.data });
+        app.setState({ urls: response.data.reverse() });
       }).catch(function (error) {
         console.log(error);
       });
       url.preventDefault();
+    }
+  }, {
+    key: 'handleImageClick',
+    value: function handleImageClick(url) {
+      window.open(url);
     }
   }, {
     key: 'render',
@@ -74,17 +79,22 @@ var App = function (_React$Component) {
         React.createElement(
           'h1',
           null,
-          'My Images'
+          'Image Analyzer'
         ),
         React.createElement(
           'div',
-          null,
-          React.createElement(Images, { deleteUrl: this.deleteUrl.bind(this), urls: this.state.urls })
-        ),
-        React.createElement(
-          'div',
-          null,
+          { id: 'addUrl' },
           React.createElement(AddUrl, { entryChange: this.entryChange.bind(this), insertUrl: this.insertUrl.bind(this), entry: this.state.entry })
+        ),
+        React.createElement(
+          'h3',
+          null,
+          'My Stored Images:'
+        ),
+        React.createElement(
+          'div',
+          null,
+          React.createElement(Images, { imageClick: this.handleImageClick.bind(this), deleteUrl: this.deleteUrl.bind(this), urls: this.state.urls })
         )
       );
     }

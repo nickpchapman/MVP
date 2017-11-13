@@ -2,7 +2,8 @@
 
 var Images = function Images(_ref) {
   var urls = _ref.urls,
-      deleteUrl = _ref.deleteUrl;
+      deleteUrl = _ref.deleteUrl,
+      imageClick = _ref.imageClick;
   return React.createElement(
     "div",
     null,
@@ -14,7 +15,8 @@ var Images = function Images(_ref) {
           deleteUrl: deleteUrl,
           key: imageObj.url,
           url: imageObj.url,
-          analysis: imageObj.analysis
+          analysis: imageObj.analysis,
+          imageClick: imageClick
         });
       })
     )

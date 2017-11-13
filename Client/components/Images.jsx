@@ -1,4 +1,4 @@
-var Images = ({urls,deleteUrl}) => (
+var Images = ({urls,deleteUrl, imageClick}) => (
 
   <div>
     <div>{
@@ -8,6 +8,7 @@ var Images = ({urls,deleteUrl}) => (
           key={imageObj.url}
           url={imageObj.url}
           analysis={imageObj.analysis}
+          imageClick ={imageClick}
         />
       )
     }</div>

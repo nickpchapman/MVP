@@ -4,17 +4,18 @@ var Analysis = function Analysis(_ref) {
     var name = _ref.name,
         value = _ref.value;
     return React.createElement(
-        "div",
-        null,
+        "tr",
+        { id: "concept" },
         React.createElement(
-            "div",
-            null,
+            "td",
+            { id: "data" },
             name
         ),
         React.createElement(
-            "div",
-            null,
-            value
+            "td",
+            { id: "data" },
+            value.toFixed(2),
+            "%"
         )
     );
 };

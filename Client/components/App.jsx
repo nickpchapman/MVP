@@ -12,7 +12,7 @@ class App extends React.Component {
     axios.get('/urls')
     .then(function (response) {
       console.log(response);
-      app.setState({urls: response.data})
+      app.setState({urls: response.data.reverse()})
     })
     .catch(function (error) {
       console.log(error);
@@ -30,7 +30,7 @@ class App extends React.Component {
     })
     .then(function (response) {
       console.log('returned', response)
-      app.setState({urls: response.data});
+      app.setState({urls: response.data.reverse()});
     })
     .catch(function (error) {
       console.log(error);
@@ -43,7 +43,7 @@ class App extends React.Component {
       url: this.state.entry
     })
     .then(function (response) {
-      app.setState({urls: response.data});
+      app.setState({urls: response.data.reverse()});
     })
     .catch(function (error) {
       console.log(error);
@@ -51,15 +51,20 @@ class App extends React.Component {
       url.preventDefault();
     }
 
+    handleImageClick(url) {
+      window.open(url);
+    }
+
   render() {
     return (
       <div>
-        <h1>My Images</h1>
-        <div>
-          <Images deleteUrl={this.deleteUrl.bind(this)} urls={this.state.urls}/>
-        </div>
-        <div>
+        <h1>Image Analyzer</h1>
+        <div id="addUrl">
           <AddUrl entryChange={this.entryChange.bind(this)} insertUrl={this.insertUrl.bind(this)} entry={this.state.entry}/>
+        </div>
+        <h3>My Stored Images:</h3>
+        <div>
+          <Images imageClick={this.handleImageClick.bind(this)}deleteUrl={this.deleteUrl.bind(this)} urls={this.state.urls}/>
         </div>
       </div>
     );

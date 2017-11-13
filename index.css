@@ -1,5 +1,54 @@
+body {
+    /*background-color: lightblue;*/
+}
 
-/*#thumbnail {
-  width: 100px;
-  height: auto;
-}*/
+#concept {
+  /*display: inline-block;
+  border-width: 2px;
+  border-color: black;
+  border-style: solid;
+  padding-bottom: 3px;*/
+}
+
+#singleEntry {
+  padding: 5px;
+  /*align-content: center;*/
+}
+
+#image {
+  border-style: solid;
+  border-color: #808080;
+  /*border-width: 1px*/
+  border-radius: 50px;
+  border-width: 1px
+
+}
+
+#table {
+ margin-left: 10px;
+ margin-right: 10px;
+}
+
+#addUrl {
+  border-bottom: 2px solid #808080;
+  padding-bottom: 5px;
+}
+
+#delete {
+  background-color: #f44336;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+
+table {
+  display: inline-block;
+}

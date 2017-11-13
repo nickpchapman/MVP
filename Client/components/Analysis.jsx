@@ -1,6 +1,6 @@
 var Analysis = ({name, value}) => (
-  <div>
-      <div>{name}</div>
-      <div>{value}</div>
-  </div>
+  <tr id="concept">
+      <td id="data">{name}</td>
+      <td id="data">{value.toFixed(2)}%</td>
+  </tr>
 )

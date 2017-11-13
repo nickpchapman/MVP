@@ -14,7 +14,7 @@ var Analysis = function Analysis(_ref) {
         React.createElement(
             "td",
             { id: "data" },
-            value.toFixed(2),
+            (value * 100).toFixed(1),
             "%"
         )
     );

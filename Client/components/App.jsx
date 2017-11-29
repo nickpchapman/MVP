@@ -59,13 +59,13 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h1>Image Analyzer</h1>
+        <h1>Image Bot</h1>
         <div id="addUrl">
           <AddUrl entryChange={this.entryChange.bind(this)} insertUrl={this.insertUrl.bind(this)} entry={this.state.entry}/>
         </div>
         <h3>My Stored Images:</h3>
         <div>
-          <Images imageClick={this.handleImageClick.bind(this)}deleteUrl={this.deleteUrl.bind(this)} urls={this.state.urls}/>
+          <Images imageClick={this.handleImageClick.bind(this)} deleteUrl={this.deleteUrl.bind(this)} urls={this.state.urls}/>
         </div>
       </div>
     );

@@ -1,6 +1,23 @@
 body {
     /*background-color: lightblue;*/
 }
+h1 {
+font-family: 'Exo', sans-serif;
+text-align: center;
+/*font-family: 'Merienda One', cursive;*/
+/*font-family: 'Permanent Marker', cursive;*/
+/*font-family: 'Orbitron', sans-serif;*/
+}
+
+#input {
+  display: table;
+  width: 100%;
+}
+
+form {
+  display: table-cell;
+  text-align: center;
+}
 
 #concept {
   /*display: inline-block;

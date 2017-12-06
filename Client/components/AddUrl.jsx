@@ -1,6 +1,6 @@
 var AddUrl = ({entryChange, insertUrl, entry}) => (
 
-  <div>
+  <div id="input">
     <form onSubmit={insertUrl}>
       <label>
         Add Image url:

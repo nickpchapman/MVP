@@ -10,7 +10,6 @@ module.exports = {
 
     app.models.predict(Clarifai.GENERAL_MODEL, url).then(
       function(response) {
-        // console.log('from api', response);
         callback(null, response);
       },
       function(err) {

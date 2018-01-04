@@ -1,17 +1,15 @@
-var Images = ({urls,deleteUrl, imageClick}) => (
-
+var Images = ({ urls, deleteUrl, imageClick }) => (
   <div>
-    <div>{
-      urls.map(imageObj =>
+    <div>
+      {urls.map(imageObj => (
         <Image
           deleteUrl={deleteUrl}
           key={imageObj.url}
           url={imageObj.url}
           analysis={imageObj.analysis}
-          imageClick ={imageClick}
+          imageClick={imageClick}
         />
-      )
-    }</div>
+      ))}
+    </div>
   </div>
-
-  )
+);
